@@ -1,0 +1,14 @@
+{
+  "name": "tanay-soman-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node generate_resume_pdf.js && mkdir -p dist && cp index.html Tanay_Soman_Resume.pdf resume.pdf dist/",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "pdfkit": "^0.20.2"
+  }
+}
