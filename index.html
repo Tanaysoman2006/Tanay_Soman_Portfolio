@@ -1012,20 +1012,13 @@
     });
   })();
 
-  // Visitor counter via CountAPI
+  // Visitor counter via localStorage
   (function(){
     var label = document.getElementById('visitor-label');
     if (!label) return;
-    fetch('https://api.countapi.xyz/hit/tanaysoman2006.github.io/portfolio')
-      .then(function(res){ return res.json(); })
-      .then(function(data){
-        if (data && typeof data.value === 'number') {
-          label.textContent = 'visitors: ' + data.value.toLocaleString();
-        }
-      })
-      .catch(function(){
-        label.textContent = 'visitors: —';
-      });
+    var count = parseInt(localStorage.getItem('ts_visit_count') || '0', 10) + 1;
+    localStorage.setItem('ts_visit_count', count);
+    label.textContent = 'visits: ' + count.toLocaleString();
   })();
 </script>
 </body>
